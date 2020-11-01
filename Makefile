@@ -29,7 +29,7 @@ install_dep:
 
 ## Style validations
 style:
-	autopep8 --in-place --aggressive **/*.py
+	autopep8 --in-place --aggressive mysite/**/*.py
 
 ## Simple commit
 commit:style
