@@ -12,6 +12,16 @@
 # COMMANDS                                                                      #
 #################################################################################
 
+## Simple commit & push command
+commit:
+	git add .
+	git commit
+	git push
+
+## Initialize pipenv environment
+env:
+	pipenv shell
+
 ## Install Dependencies from Pipfile
 install_dep:
 	@echo ">>> Installing package."
@@ -29,24 +39,24 @@ commit:style
 
 ## Make migrations to db
 migrations:
-	python manage.py makemigrations
-	python manage.py migrate
+	python mysite/manage.py makemigrations
+	python mysite/manage.py migrate
 
 ## See one migration
 see_migrations:
-	python manage.py sqlmigrate blog 0001
+	python mysite/manage.py sqlmigrate blog 0001
 
 ## Rise up server
 server:
-	python manage.py runserver
+	python mysite/manage.py runserver
 
 ## Create superuser
 admin:
-	python manage.py createsuperuser
+	python mysite/manage.py createsuperuser
 
 ## Open interactive shell
 shell:
-	python manage.py shell
+	python mysite/manage.py shell
 
 #################################################################################
 # PROJECT RULES                                                                 #

@@ -7,10 +7,18 @@
     </div>
 </div>
 {% for post in posts %}
-<h2>
-  <a href="{{ post.get_absolute_url }}"> {{ post.title }} </a>
-</h2>
-<p class="date">Published {{ post.publish }} by {{ post.author }}</p>
-{{ post.body|truncatewords:30|linebreaks }} {% endfor %} 
-{% include "pagination.html" with page=posts %}
+<div class="card my-2">
+  <div class="card-body">
+    <h2 class="card-title">
+      {{ post.title }}
+    </h2>
+    <h6 class="text-muted">Published {{ post.publish }} by {{ post.author }}</h6>
+    <p class="card-text">
+      {{ post.body|truncatewords:30|linebreaks }} 
+    </p>
+    <a href="{{ post.get_absolute_url }}" class="btn btn-primary">See more</a>
+  </div>
+</div>
+{% endfor %} 
+{% include "pagination.html" with page=page_obj %}
 {% endblock %}
