@@ -12,12 +12,6 @@
 # COMMANDS                                                                      #
 #################################################################################
 
-## Simple commit & push command
-commit:
-	git add .
-	git commit
-	git push
-
 ## Initialize pipenv environment
 env:
 	pipenv shell

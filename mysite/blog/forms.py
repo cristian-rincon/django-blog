@@ -1,5 +1,7 @@
 from django import forms
 
+from .models import Comment
+
 
 class EmailPostForm(forms.Form):
     """
@@ -31,3 +33,18 @@ class EmailPostForm(forms.Form):
     email.widget.attrs.update({"class": "form-control"})
     to.widget.attrs.update({"class": "form-control"})
     comments.widget.attrs.update({"class": "form-control"})
+
+
+class CommentForm(forms.ModelForm):
+    """
+    Handle comments form
+    """
+
+    class Meta:
+        model = Comment
+        fields = ("name", "email", "body")
+        widgets = {
+            "name": forms.TextInput(attrs={"class": "form-control"}),
+            "email": forms.TextInput(attrs={"class": "form-control"}),
+            "body": forms.Textarea(attrs={"class": "form-control"}),
+        }
